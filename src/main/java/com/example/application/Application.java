@@ -42,7 +42,7 @@ public class Application implements AppShellConfigurator {
         return (x)->{
             logger.info("Init Data");
             
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 100; i++) {
                 Employee employee = new Employee();
                 employee.setName(Faker.instance().name().fullName());
                 employee.setEmail(Faker.instance().internet().emailAddress());

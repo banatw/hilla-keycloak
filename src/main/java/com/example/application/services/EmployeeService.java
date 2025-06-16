@@ -23,6 +23,13 @@ public class EmployeeService extends ListRepositoryService<Employee,Integer,Empl
         if(result.isEmpty()) {
             return "Gagal";
         }
-        return "Ok";
+        return "Data Tersimpan";
     }
+
+     public String delete(Integer id) {
+        employeeRepository.deleteById(id);
+        return "Data Terhapus";
+    }
+
+    
 }
