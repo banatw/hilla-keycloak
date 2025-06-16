@@ -32,6 +32,7 @@ export default function EmployeeView() {
                 customColumns={[
                     <GridColumn renderer={actionRenderer} />,
                 ]}
+                hiddenColumns={['html']}
                 columnOptions={{
                     name: {
                         renderer: ({item} : {item: Employee})=><NavLink to={`/employee/info/${item.id}`}>{item.name}</NavLink>

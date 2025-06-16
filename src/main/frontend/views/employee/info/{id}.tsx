@@ -19,6 +19,7 @@ export default function EmployeeInfoView() {
         <TextField label={'Name'} value={employee.value?.name} readonly />
         <EmailField label={'Email'} value={employee.value?.email} readonly />
         <NavLink to={`/employee`}>Kembali</NavLink>
+        
     </VerticalLayout>
   )
 }

@@ -46,6 +46,7 @@ public class Application implements AppShellConfigurator {
                 Employee employee = new Employee();
                 employee.setName(Faker.instance().name().fullName());
                 employee.setEmail(Faker.instance().internet().emailAddress());
+                employee.setHtml("<ol><li>dsdsds</li><li>dsdsdsdds</li></ol>");
                 employeeRepository.save(employee);
             }
             logger.info("End init Data");
