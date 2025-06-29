@@ -2,6 +2,7 @@ package com.example.application;
 
 import com.example.application.data.Employee;
 import com.example.application.data.EmployeeRepository;
+import com.github.javafaker.Address;
 import com.github.javafaker.Faker;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.theme.Theme;
@@ -46,6 +47,12 @@ public class Application implements AppShellConfigurator {
                 Employee employee = new Employee();
                 employee.setName(Faker.instance().name().fullName());
                 employee.setEmail(Faker.instance().internet().emailAddress());
+                Address address = Faker.instance().address();
+                employee.setAddress(address.fullAddress());
+
+                // -6.714437373986136, 106.73397613586656
+                employee.setLatitude(Double.valueOf(address.latitude()));
+                employee.setLongitude(Double.valueOf(address.longitude()));
                 employee.setHtml("<ol><li>dsdsds</li><li>dsdsdsdds</li></ol>");
                 employeeRepository.save(employee);
             }

@@ -26,10 +26,13 @@ public class EmployeeService extends ListRepositoryService<Employee,Integer,Empl
         return "Data Tersimpan";
     }
 
-     public String delete(Integer id) {
+    public String delete(Integer id) {
         employeeRepository.deleteById(id);
         return "Data Terhapus";
     }
 
+    public Employee getById(Integer id) {
+        return employeeRepository.getReferenceById(id);
+    }
     
 }
