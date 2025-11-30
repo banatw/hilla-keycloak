@@ -6,12 +6,13 @@ import EmployeeModel from 'Frontend/generated/com/example/application/data/Emplo
 import { EmployeeService } from 'Frontend/generated/endpoints'
 import React, { EventHandler, useEffect, useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router'
-import Editor, { ContentEditableEvent } from 'react-simple-wysiwyg';
+// import Editor, { ContentEditableEvent } from 'react-simple-wysiwyg';
 import { FeatureGroup, MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-draw/dist/leaflet.draw.css'
 import { EditControl } from "react-leaflet-draw"
 import { LatLng, LatLngExpression, LatLngLiteral, LatLngTuple } from 'leaflet'
+import { Editor } from '@hugerte/hugerte-react'
 
 
 export default function EmployeeEditView() {
@@ -35,9 +36,9 @@ export default function EmployeeEditView() {
     const [lng,setLng] = useState<number>(0)
    
 
-    function onChangeHandler(e: ContentEditableEvent) {
-      setValue(e.target.value)
-    }
+    // function onChangeHandler(e: ContentEditabanyleEvent) {
+    //   setValue(e.target.value)
+    // }
 
     useEffect(() => {
         EmployeeService.get(Number(id)).then((data)=>{
@@ -51,6 +52,9 @@ export default function EmployeeEditView() {
     },[])
 
     
+    const handleEditorChange = (newValue:any,editor:any)=>{
+      setValue(newValue)
+    }
 
     function MyComponent() {
       const map = useMap()
@@ -64,11 +68,11 @@ export default function EmployeeEditView() {
 
   return (
     <FormLayout>
-        <TextField label={'Name'} {...form.field(form.model.name)} autocomplete='off' />
-        <EmailField label={'Email'} {...form.field(form.model.email)} autocomplete='off' />
+        <TextField label='tes' {...form.field(form.model.name)} />
+        <EmailField label='Email' {...form.field(form.model.email)}  />
         {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
         <TextArea  label={'Address'} {...form.field(form.model.address)}  />
-        <Editor value={value} onChange={onChangeHandler} />
+        <Editor value={value} onEditorChange={handleEditorChange} />
         <Button onClick={form.submit}>Simpan</Button>
         <NavLink to={`/employee`}>Kembali</NavLink>
         <MapContainer style={{ width: "100%", height: "100vh" }} center={{lat: lat,lng: lng}} zoom={13} scrollWheelZoom={false}>

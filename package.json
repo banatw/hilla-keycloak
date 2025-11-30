@@ -3,6 +3,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "dependencies": {
+    "@hugerte/hugerte-react": "^2.0.2",
     "@polymer/polymer": "3.5.2",
     "@vaadin/bundles": "24.7.7",
     "@vaadin/common-frontend": "0.0.19",
@@ -31,8 +32,7 @@
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0-rc.2",
     "react-leaflet-draw": "^0.20.6",
-    "react-router": "7.5.2",
-    "react-simple-wysiwyg": "^3.2.2"
+    "react-router": "7.5.2"
   },
   "devDependencies": {
     "@babel/preset-react": "7.26.3",
@@ -129,7 +129,7 @@
       "workbox-core": "7.3.0",
       "workbox-precaching": "7.3.0"
     },
-    "hash": "036891d80d2c412fdfbdc47ed21bab20e3c0ac2c6e4038ae86d9572f7a9db9a0"
+    "hash": "9d730b4103af3ff9b40c119574cefd2a7b683538038f86db1fff7800ad0850c3"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
@@ -169,9 +169,9 @@
     "@vaadin/vaadin-lumo-styles": "$@vaadin/vaadin-lumo-styles",
     "@vaadin/vaadin-material-styles": "$@vaadin/vaadin-material-styles",
     "react-router": "$react-router",
-    "react-simple-wysiwyg": "$react-simple-wysiwyg",
     "leaflet": "$leaflet",
     "react-leaflet": "$react-leaflet",
-    "react-leaflet-draw": "$react-leaflet-draw"
+    "react-leaflet-draw": "$react-leaflet-draw",
+    "@hugerte/hugerte-react": "$@hugerte/hugerte-react"
   }
 }

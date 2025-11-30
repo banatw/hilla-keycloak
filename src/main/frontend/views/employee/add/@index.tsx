@@ -1,11 +1,12 @@
+import { Editor } from '@hugerte/hugerte-react'
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js'
 import { useForm } from '@vaadin/hilla-react-form'
-import { Button, EmailField, FormLayout,Notification, TextField } from '@vaadin/react-components'
+import { Button, EmailField, FormLayout,Notification, TextField, VerticalLayout } from '@vaadin/react-components'
 import EmployeeModel from 'Frontend/generated/com/example/application/data/EmployeeModel'
 import { EmployeeService } from 'Frontend/generated/endpoints'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router'
-import Editor, { ContentEditableEvent } from 'react-simple-wysiwyg';
+// import Editor, { ContentEditableEvent } from 'react-simple-wysiwyg';
 
 export const config: ViewConfig = {
     rolesAllowed: ['ADMIN'],
@@ -30,21 +31,19 @@ export default function EmployeeAddView() {
     const [value, setValue] = useState<string>()
     const navigate = useNavigate()
 
-    function onChangeHandler(e: ContentEditableEvent) {
-      setValue(e.target.value)
+    function onEditorChangeHandler(newValue:any,editor:any):any {
+      setValue(newValue)
     }
 
    
   return (
-    <div>
         <FormLayout>
             <TextField label={'Name'}  {...form.field(form.model.name)} autocomplete='off' />
             <EmailField label={'Email'}  {...form.field(form.model.email)} autocomplete='off' />
             {/* <ReactQuill theme="snow" value={value} onChange={setValue} /> */}
-            <Editor value={value} onChange={onChangeHandler} />
+            <Editor  onEditorChange={onEditorChangeHandler}/>
             <Button onClick={form.submit}>Simpan</Button>
             <NavLink to={`/employee`}>Kembali</NavLink>
         </FormLayout>
-    </div>
   )
 }
